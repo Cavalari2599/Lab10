@@ -1,0 +1,214 @@
+/* ══════════════════════════════════════════════════════════
+   UcrPoster.css  –  Estilos encapsulados del Shadow DOM
+   Las variables CSS definidas aquí con fallback pueden
+   ser sobreescritas desde fuera del componente.
+   ══════════════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;900&family=Barlow:ital,wght@0,400;0,700;1,700&display=swap');
+
+/* ── Variables internas (con fallback a las del host) ── */
+:host {
+  /* Personalizables desde fuera */
+  --poster-fondo:        var(--color-ucr-dorado, #c9a227);
+  --poster-azul:         var(--color-ucr-azul, #2196c4);
+  --poster-morado:       var(--color-ucr-morado, #6b2fa0);
+  --poster-blanco:       #ffffff;
+  --poster-negro:        #1a1a1a;
+  --poster-ancho:        380px;
+  --poster-radio:        4px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ── Animaciones ── */
+@keyframes aparece {
+  from { opacity: 0; transform: scale(0.95) translateY(20px); }
+  to   { opacity: 1; transform: scale(1)    translateY(0); }
+}
+@keyframes baja {
+  from { opacity: 0; transform: translateY(-16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes sube {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulso {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.08); }
+}
+
+/* ══ PART: poster ══ */
+.poster {
+  width: var(--poster-ancho);
+  background: var(--poster-fondo);
+  border-radius: var(--poster-radio);
+  overflow: hidden;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.4);
+  animation: aparece 0.7s cubic-bezier(0.22,1,0.36,1) both;
+}
+
+/* ══ PART: titulo-wrap ══ */
+.titulo-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 28px 20px 10px;
+  animation: baja 0.6s cubic-bezier(0.22,1,0.36,1) 0.1s both;
+}
+
+.exclamacion {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 52px;
+  line-height: 1;
+  color: var(--poster-azul);
+  animation: pulso 2.5s ease-in-out infinite;
+}
+.exclamacion.der { animation-delay: 0.3s; }
+
+.titulo-bloque {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.linea-1, .linea-2 {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+/* ══ PART: badge-linea1, badge-linea2 ══ */
+.badge-linea1 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 28px;
+  letter-spacing: 1px;
+  color: var(--poster-blanco);
+  background: var(--poster-morado);
+  padding: 3px 10px 4px;
+  border-radius: 4px;
+  line-height: 1;
+}
+
+.badge-linea2 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 28px;
+  letter-spacing: 1px;
+  color: var(--poster-blanco);
+  background: var(--poster-azul);
+  padding: 3px 10px 4px;
+  border-radius: 4px;
+  line-height: 1;
+}
+
+/* ══ PART: subtitulo ══ */
+.subtitulo {
+  text-align: center;
+  padding: 14px 24px 8px;
+  animation: baja 0.6s cubic-bezier(0.22,1,0.36,1) 0.2s both;
+}
+
+/* Dar estilo a los hijos directos del slot subtitulo */
+::slotted([slot="subtitulo"] p:first-child) {
+  font-size: 18px;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--poster-negro);
+  margin-bottom: 2px;
+}
+
+::slotted([slot="subtitulo"]) {
+  font-size: 18px;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--poster-negro);
+}
+
+/* ══ PART: qr-wrap ══ */
+.qr-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 0 12px;
+  animation: baja 0.6s cubic-bezier(0.22,1,0.36,1) 0.3s both;
+}
+
+::slotted([slot="qr-texto"]) {
+  font-size: 11px;
+  color: rgba(0,0,0,0.6);
+  text-align: center;
+  line-height: 1.4;
+}
+
+::slotted([slot="qr"]) {
+  width: 120px;
+  height: 120px;
+  border-radius: 4px;
+  background: #fff;
+  padding: 4px;
+  display: block;
+}
+
+/* ══ PART: imagen-wrap ══ */
+.imagen-wrap {
+  display: flex;
+  width: 60%;
+  margin: 0 auto;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  animation: sube 0.7s cubic-bezier(0.22,1,0.36,1) 0.35s both;
+}
+
+::slotted([slot="foto"]) {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: top center;
+}
+
+/* ══ PART: footer ══ */
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  background: var(--poster-blanco);
+  padding: 12px 20px;
+  animation: baja 0.6s cubic-bezier(0.22,1,0.36,1) 0.5s both;
+}
+
+.separador {
+  width: 1px;
+  height: 36px;
+  background: #ccc;
+}
+
+/* Estilos para slotted footer */
+::slotted([slot="footer-izq"]) {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 26px;
+  color: var(--poster-azul);
+  letter-spacing: 1px;
+}
+
+::slotted([slot="footer-centro"]) {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.1;
+}
+
+::slotted([slot="footer-der"]) {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}

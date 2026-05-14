@@ -1,0 +1,27 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  min-height: 100vh;
+  background: #d4a82a;
+  padding: 32px 16px;
+}
+
+.btn-volver {
+  display: inline-block;
+  padding: 10px 24px;
+  background: #1c3872;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  transition: background 0.25s, transform 0.2s;
+}
+
+.btn-volver:hover {
+  background: #254fa8;
+  transform: translateY(-2px);
+}

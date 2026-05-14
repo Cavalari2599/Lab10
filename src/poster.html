@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La Sede Te Acompaña – UCR</title>
+  <link rel="stylesheet" href="styles/global.css">
+  <link rel="stylesheet" href="styles/poster-page.css">
+  <script type="module" src="main.js"></script>
+</head>
+<body>
+
+  <ucr-poster>
+    <span slot="titulo-linea1">LA SEDE</span>
+    <span slot="titulo-linea2">TE ACOMPAÑA</span>
+
+    <div slot="subtitulo">
+      <p>El respeto no se negocia</p>
+      <p>¡Pará ya de acosar!</p>
+    </div>
+
+    <p slot="qr-texto">Si necesitás ayuda,<br>escaneá este QR:</p>
+
+    <img slot="qr"  src="assets/qr.png"     alt="Código QR de ayuda">
+<img slot="foto" src="assets/poster.png" alt="Persona de apoyo">
+
+    <div slot="footer-izq" style="font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:26px; color:#2196c4; letter-spacing:1px;">
+      UCR
+    </div>
+
+    <div slot="footer-centro" style="display:flex; flex-direction:column; align-items:flex-start; line-height:1.1;">
+      <span style="font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:13px; color:#2196c4;">UCR</span>
+      <span style="font-size:9px; font-weight:700; color:#6b2fa0; text-transform:uppercase; letter-spacing:0.3px; line-height:1.3;">LIBRE DE<br>ACOSO<br>SEXUAL</span>
+    </div>
+
+    <div slot="footer-der" style="display:flex; align-items:center; gap:6px;">
+      <span style="font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:22px; color:#1a1a1a;">SG</span>
+      <span style="font-size:10px; color:#555; line-height:1.4;">Sede de<br>Guanacasta</span>
+    </div>
+  </ucr-poster>
+
+  <a href="index.html" class="btn-volver">← Volver</a>
+
+</body>
+</html>

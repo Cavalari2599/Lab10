@@ -1,0 +1,35 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  min-height: 100vh;
+  background: #e8ecf4;
+  padding: 32px 16px;
+}
+
+h1 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 28px;
+  color: var(--color-nav-fondo);
+  letter-spacing: 1px;
+}
+
+.btn-poster {
+  display: inline-block;
+  padding: 10px 24px;
+  background: #1c3872;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  transition: background 0.25s, transform 0.2s;
+}
+
+.btn-poster:hover {
+  background: #254fa8;
+  transform: translateY(-2px);
+}
